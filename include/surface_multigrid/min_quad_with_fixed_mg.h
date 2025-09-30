@@ -14,9 +14,9 @@
 #include <Eigen/Core>
 #include <Eigen/Sparse>
 
-#include <sort_vec.h>
-#include <mg_data.h>
-#include <mg_VCycle.h>
+#include <surface_multigrid/sort_vec.h>
+#include <surface_multigrid/mg_data.h>
+#include <surface_multigrid/mg_VCycle.h>
 
 struct min_quad_with_fixed_mg_data
 {

@@ -9,8 +9,8 @@
 #include <Eigen/Sparse>
 #include <Eigen/Dense>
 
-#include <mg_data.h>
-#include <get_prolong.h>
+#include <surface_multigrid/mg_data.h>
+#include <surface_multigrid/get_prolong.h>
 
 void mg_precompute_block(
 	const Eigen::MatrixXd & Vf,

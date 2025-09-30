@@ -15,15 +15,15 @@
 #include <igl/setdiff.h>
 #include <igl/internal_angles.h>
 
-#include <get_post_faces.h>
-#include <vector_area_matrix_size.h>
-#include <mqwf_dense.h>
-#include <mqwf_dense_data.h>
-#include <remove_vector_element.h>
-#include <cotmatrix_dense.h>
-#include <quasi_conformal_error.h>
+#include <surface_multigrid/get_post_faces.h>
+#include <surface_multigrid/vector_area_matrix_size.h>
+#include <surface_multigrid/mqwf_dense.h>
+#include <surface_multigrid/mqwf_dense_data.h>
+#include <surface_multigrid/remove_vector_element.h>
+#include <surface_multigrid/cotmatrix_dense.h>
+#include <surface_multigrid/quasi_conformal_error.h>
 
-#include <profc.h>
+#include <surface_multigrid/profc.h>
 #include <vector>
 #include <iostream>
 #include <stdlib.h>

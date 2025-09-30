@@ -8,7 +8,7 @@
 #ifndef DECIMATE_FUNC_TYPES_H
 #define DECIMATE_FUNC_TYPES_H
 #include <Eigen/Core>
-#include "min_heap.h"
+#include <surface_multigrid/min_heap.h>
   // Function handles used to customize the `igl::decimate` command.
   using decimate_cost_and_placement_func = 
     std::function<void(

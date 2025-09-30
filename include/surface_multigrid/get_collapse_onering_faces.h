@@ -6,7 +6,7 @@
 #include <igl/unique.h>
 #include <igl/writeOBJ.h>
 #include <igl/resolve_duplicated_faces.h>
-#include <get_post_faces.h>
+#include <surface_multigrid/get_post_faces.h>
 
 #include <vector>
 #include <iostream>

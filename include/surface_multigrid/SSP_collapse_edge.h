@@ -21,17 +21,16 @@
 #include <algorithm> 
 #include <map>
 
-#include <single_collapse_data.h>
-#include <remove_row.h>
-#include <get_collapse_onering_faces.h>
-#include <vector_mod.h>
-#include <get_post_faces.h>
-#include <joint_lscm.h>
-// #include <joint_arap2D.h>
-#include <profc.h>
-#include <remove_unreferenced_lessF.h>
-#include <decimate_func_types.h>
-#include <min_heap.h>
+#include <surface_multigrid/single_collapse_data.h>
+#include <surface_multigrid/remove_row.h>
+#include <surface_multigrid/get_collapse_onering_faces.h>
+#include <surface_multigrid/vector_mod.h>
+#include <surface_multigrid/get_post_faces.h>
+#include <surface_multigrid/joint_lscm.h>
+#include <surface_multigrid/profc.h>
+#include <surface_multigrid/remove_unreferenced_lessF.h>
+#include <surface_multigrid/decimate_func_types.h>
+#include <surface_multigrid/min_heap.h>
 
 
 // namespace igl

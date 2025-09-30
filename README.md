@@ -5,11 +5,9 @@ In order to use this library as a submodule, I made a few hierarchical changes t
 - Header files are moved to `include/surface_multigrid`.
 - Source files remain under `src`.
 - Removed submodule `libigl`, use recommended CMake download instead.
-- A `CMakeLists.txt` is added for using the code as a library.
 - Demo cases (including assets and meshes) are removed as they don't work anymore.
 
 # Surface Multigrid via Intrinsic Prolongation
-<img src="./assets/teaser.jpg" width="100%">
 
 Public code release for [Surface Multigrid via Intrinsic Prolongation](https://www.dgp.toronto.edu/projects/intrinsic-prolongation/). For more details, please refer to:
 

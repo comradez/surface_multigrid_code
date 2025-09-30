@@ -7,11 +7,11 @@
 #include <Eigen/Core>
 #include <iostream>
 #include <vector>
-#include <single_collapse_data.h>
+#include <surface_multigrid/single_collapse_data.h>
 
-#include <SSP_qslim.h>
-#include <SSP_vertexRemoval.h>
-#include <SSP_midpoint.h>
+#include <surface_multigrid/SSP_qslim.h>
+#include <surface_multigrid/SSP_vertexRemoval.h>
+#include <surface_multigrid/SSP_midpoint.h>
 
 // Decimate the model with Successive Self-Parameterization (SSP)
 //

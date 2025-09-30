@@ -12,8 +12,8 @@
 #include <string.h>
 #include <stdio.h>
 
-#include <profc.h>
-#include <mg_data.h>
+#include <surface_multigrid/profc.h>
+#include <surface_multigrid/mg_data.h>
 
 #include <Eigen/Dense>
 #include <Eigen/Core>

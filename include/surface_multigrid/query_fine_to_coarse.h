@@ -3,9 +3,9 @@
 
 #include <Eigen/Core>
 #include <vector>
-#include <single_collapse_data.h>
-#include <vector_mod.h>
-#include <compute_barycentric.h>
+#include <surface_multigrid/single_collapse_data.h>
+#include <surface_multigrid/vector_mod.h>
+#include <surface_multigrid/compute_barycentric.h>
 #include <fstream>
 
 #include <igl/min.h>

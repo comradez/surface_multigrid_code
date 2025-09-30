@@ -14,11 +14,11 @@
 #include <igl/max_faces_stopping_condition.h>
 #include <igl/shortest_edge_and_midpoint.h>
 
-#include <SSP_collapse_edge.h>
+#include <surface_multigrid/SSP_collapse_edge.h>
 #include <vector>
-#include <single_collapse_data.h>
-#include <always_try_never_care.h>
-#include <decimate_func_types.h>
+#include <surface_multigrid/single_collapse_data.h>
+#include <surface_multigrid/always_try_never_care.h>
+#include <surface_multigrid/decimate_func_types.h>
 
 // Modified from libigl "decimate", see "SSP_decimate" for more info
 // Assumes (V,F) is a manifold mesh (possibly with boundary) Collapses edges

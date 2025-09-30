@@ -4,17 +4,11 @@
 #include <Eigen/Core>
 #include <vector>
 
-#include <SSP_random_midpoint.h>
-#include <SSP_qslim_optimal_collapse_edge_callbacks.h>
-
-// #include <igl/collapse_edge.h>
 #include <igl/connect_boundary_to_infinity.h>
-// #include <igl/decimate.h>
 #include <igl/edge_flaps.h>
 #include <igl/is_edge_manifold.h>
 #include <igl/max_faces_stopping_condition.h>
 #include <igl/per_vertex_point_to_plane_quadrics.h>
-// #include <igl/qslim_optimal_collapse_edge_callbacks.h>
 #include <igl/quadric_binary_plus_operator.h>
 #include <igl/remove_unreferenced.h>
 #include <igl/slice.h>
@@ -22,8 +16,10 @@
 #include <igl/find.h>
 #include <igl/unique.h>
 
-#include <single_collapse_data.h>
-#include <compute_vertex_quadrics.h>
+#include <surface_multigrid/SSP_random_midpoint.h>
+#include <surface_multigrid/SSP_qslim_optimal_collapse_edge_callbacks.h>
+#include <surface_multigrid/single_collapse_data.h>
+#include <surface_multigrid/compute_vertex_quadrics.h>
 
 
 // Modified from libigl "qslim", see "SSP_decimate" for more info

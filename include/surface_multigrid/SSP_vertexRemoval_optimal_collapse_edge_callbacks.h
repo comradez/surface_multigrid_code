@@ -7,7 +7,7 @@
 // obtain one at http://mozilla.org/MPL/2.0/.
 #ifndef SSP_VERTEXREMOVAL_OPTIMAL_COLLAPSE_EDGE_CALLBACKS_H
 #define SSP_VERTEXREMOVAL_OPTIMAL_COLLAPSE_EDGE_CALLBACKS_H
-#include <decimate_func_types.h>
+#include <surface_multigrid/decimate_func_types.h>
 #include <igl/quadric_binary_plus_operator.h>
 
 #include <Eigen/Core>

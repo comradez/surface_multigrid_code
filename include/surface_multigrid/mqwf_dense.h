@@ -13,7 +13,7 @@
 #include <iostream>
 #include <math.h>
 
-#include <mqwf_dense_data.h>
+#include <surface_multigrid/mqwf_dense_data.h>
 
 #include <Eigen/Dense>
 #include <Eigen/Core>

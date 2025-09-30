@@ -6,9 +6,9 @@
 #include <vector>
 #include <iostream>
 
-#include <SSP_decimate.h>
-#include <single_collapse_data.h>
-#include <query_fine_to_coarse.h>
+#include <surface_multigrid/SSP_decimate.h>
+#include <surface_multigrid/single_collapse_data.h>
+#include <surface_multigrid/query_fine_to_coarse.h>
 
 // decimate the model with successive self-parameterization and compute the prolongation (aka interpolation) operator from V to Vf
 //
