@@ -1,7 +1,7 @@
-#include "surface_multigrid/SSP_random_collapse_edge.h"
 #include <igl/circulation.h>
 #include <igl/edge_collapse_is_valid.h>
-#include <always_try_never_care.h>
+#include <surface_multigrid/always_try_never_care.h>
+#include <surface_multigrid/SSP_random_collapse_edge.h>
 #include <vector>
 #include <math.h>
 #include <fstream>
