@@ -7,12 +7,11 @@
 #include <igl/sort.h>
 #include <igl/LinSpaced.h>
 
-#include <intersect_ordered.h>
-
 #include <vector>
 #include <iostream>
 #include <math.h>
 
+#include <surface_multigrid/intersect_ordered.h>
 #include <surface_multigrid/mqwf_dense_data.h>
 
 #include <Eigen/Dense>
