@@ -1,4 +1,5 @@
 #include "compute_barycentric.h"
+#include <cassert>
 
 void compute_barycentric(
   const Eigen::VectorXd & p,

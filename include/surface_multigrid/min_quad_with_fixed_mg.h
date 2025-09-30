@@ -3,7 +3,6 @@
 
 #include <igl/slice.h>
 #include <igl/slice_into.h>
-#include <igl/diag.h>
 #include <igl/is_symmetric.h>
 #include <igl/setdiff.h>
 

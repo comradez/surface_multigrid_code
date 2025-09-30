@@ -1,3 +1,13 @@
+# Modification Notice
+
+In order to use this library as a submodule, I made a few hierarchical changes to the code:
+
+- Header files are moved to `include/surface_multigrid`.
+- Source files remain under `src`.
+- Submodules are moved under `external`.
+- A `CMakeLists.txt` is added for using the code as a library.
+- Demo cases (including assets and meshes) are removed as they don't work anymore.
+
 # Surface Multigrid via Intrinsic Prolongation
 <img src="./assets/teaser.jpg" width="100%">
 
