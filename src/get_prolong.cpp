@@ -1,4 +1,4 @@
-#include "get_prolong.h"
+#include "surface_multigrid/get_prolong.h"
 
 void get_prolong(
 	const Eigen::MatrixXd & VO,

@@ -1,4 +1,4 @@
-#include "remove_row.h"
+#include "surface_multigrid/remove_row.h"
 
 void remove_row(
   const int rowToRemove,

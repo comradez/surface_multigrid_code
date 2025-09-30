@@ -1,4 +1,4 @@
-#include "always_try_never_care.h"
+#include "surface_multigrid/always_try_never_care.h"
 
 void always_try_never_care(
     decimate_pre_collapse_func  & always_try,

@@ -1,4 +1,4 @@
-#include "SSP_midpoint.h"
+#include "surface_multigrid/SSP_midpoint.h"
 
 using namespace igl;
 

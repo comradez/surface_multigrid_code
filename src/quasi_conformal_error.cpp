@@ -1,4 +1,4 @@
-#include "quasi_conformal_error.h"
+#include "surface_multigrid/quasi_conformal_error.h"
 
 void quasi_conformal_error(
   const Eigen::MatrixXd & V,

@@ -1,4 +1,4 @@
-#include "SSP_qslim.h"
+#include "surface_multigrid/SSP_qslim.h"
 
 bool SSP_qslim(
     const Eigen::MatrixXd & V,

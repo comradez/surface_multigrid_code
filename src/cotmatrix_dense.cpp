@@ -1,4 +1,4 @@
-#include "cotmatrix_dense.h"
+#include "surface_multigrid/cotmatrix_dense.h"
 
 void cotmatrix_dense(
   const Eigen::MatrixXd & V,

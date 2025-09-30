@@ -1,4 +1,4 @@
-#include "get_post_faces.h"
+#include "surface_multigrid/get_post_faces.h"
 
 void get_post_faces(
 	const Eigen::MatrixXi & F_pre,

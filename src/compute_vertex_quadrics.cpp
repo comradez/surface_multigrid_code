@@ -1,4 +1,4 @@
-#include "compute_vertex_quadrics.h"
+#include "surface_multigrid/compute_vertex_quadrics.h"
 
 void compute_vertex_quadrics(
   const Eigen::MatrixXd & V,

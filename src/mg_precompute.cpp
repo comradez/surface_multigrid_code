@@ -1,4 +1,4 @@
-#include "mg_precompute.h"
+#include "surface_multigrid/mg_precompute.h"
 
 // Build up a multi-level hierarchy for the surface multigrid solver
 //

@@ -1,4 +1,4 @@
-#include "SSP_random_midpoint.h"
+#include "surface_multigrid/SSP_random_midpoint.h"
 
 using namespace igl;
 

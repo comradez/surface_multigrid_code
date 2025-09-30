@@ -1,4 +1,4 @@
-#include "mqwf_dense.h"
+#include "surface_multigrid/mqwf_dense.h"
 
 void mqwf_dense_precompute(
   const Eigen::MatrixXd & A,

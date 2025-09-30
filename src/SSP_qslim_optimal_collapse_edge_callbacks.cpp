@@ -5,7 +5,7 @@
 // This Source Code Form is subject to the terms of the Mozilla Public License 
 // v. 2.0. If a copy of the MPL was not distributed with this file, You can 
 // obtain one at http://mozilla.org/MPL/2.0/.
-#include "SSP_qslim_optimal_collapse_edge_callbacks.h"
+#include "surface_multigrid/SSP_qslim_optimal_collapse_edge_callbacks.h"
 #include <Eigen/LU>
 
 void SSP_qslim_optimal_collapse_edge_callbacks(

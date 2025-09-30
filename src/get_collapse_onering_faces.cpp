@@ -1,4 +1,4 @@
-#include "get_collapse_onering_faces.h"
+#include "surface_multigrid/get_collapse_onering_faces.h"
 
 bool get_collapse_onering_faces(
   const Eigen::MatrixXd & V,

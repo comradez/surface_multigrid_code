@@ -1,4 +1,4 @@
-#include "mg_precompute_block.h"
+#include "surface_multigrid/mg_precompute_block.h"
 
 void mg_precompute_block(
 	const Eigen::MatrixXd & Vf,

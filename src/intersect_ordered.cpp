@@ -1,4 +1,4 @@
-#include "intersect_ordered.h"
+#include "surface_multigrid/intersect_ordered.h"
 
 void intersect_ordered(
   const Eigen::VectorXi & A,

@@ -1,4 +1,4 @@
-#include "SSP_random_qslim.h"
+#include "surface_multigrid/SSP_random_qslim.h"
 
 bool SSP_random_qslim(
     const Eigen::MatrixXd & V,

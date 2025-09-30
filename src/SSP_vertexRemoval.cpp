@@ -1,4 +1,4 @@
-#include "SSP_vertexRemoval.h"
+#include "surface_multigrid/SSP_vertexRemoval.h"
 
 bool SSP_vertexRemoval(
     const Eigen::MatrixXd & V,

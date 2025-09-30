@@ -1,4 +1,4 @@
-#include "compute_barycentric.h"
+#include "surface_multigrid/compute_barycentric.h"
 #include <cassert>
 
 void compute_barycentric(

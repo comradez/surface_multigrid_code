@@ -1,4 +1,4 @@
-#include "sort_vec.h"
+#include "surface_multigrid/sort_vec.h"
 
 void sort_vec(
   const Eigen::VectorXd & vec, 

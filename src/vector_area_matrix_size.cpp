@@ -1,4 +1,4 @@
-#include "vector_area_matrix_size.h"
+#include "surface_multigrid/vector_area_matrix_size.h"
 
 void vector_area_matrix_size(
   const Eigen::MatrixXi & F,

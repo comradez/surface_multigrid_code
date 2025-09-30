@@ -1,4 +1,4 @@
-#include "SSP_decimate.h"
+#include "surface_multigrid/SSP_decimate.h"
 
 bool SSP_decimate(
     const Eigen::MatrixXd & VO,

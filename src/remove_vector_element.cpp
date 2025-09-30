@@ -1,4 +1,4 @@
-#include "remove_vector_element.h"
+#include "surface_multigrid/remove_vector_element.h"
 
 void remove_vector_element(
   const int idxToRemove,

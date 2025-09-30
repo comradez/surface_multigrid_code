@@ -1,4 +1,4 @@
-#include "normalize_unit_area.h"
+#include "surface_multigrid/normalize_unit_area.h"
 
 void normalize_unit_area(
 	Eigen::MatrixXd & V,

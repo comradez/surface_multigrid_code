@@ -1,4 +1,4 @@
-#include "remove_unreferenced_lessF.h"
+#include "surface_multigrid/remove_unreferenced_lessF.h"
 
 void remove_unreferenced_lessF(
   const Eigen::MatrixXd & V,

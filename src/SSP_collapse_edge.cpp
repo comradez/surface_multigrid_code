@@ -1,4 +1,4 @@
-#include "SSP_collapse_edge.h"
+#include "surface_multigrid/SSP_collapse_edge.h"
 #include <igl/circulation.h>
 #include <igl/edge_collapse_is_valid.h>
 #include <always_try_never_care.h>

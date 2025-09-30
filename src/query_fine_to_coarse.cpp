@@ -1,4 +1,4 @@
-#include "query_fine_to_coarse.h"
+#include "surface_multigrid/query_fine_to_coarse.h"
 
 void query_fine_to_coarse(
   const std::vector<single_collapse_data> & decInfo,

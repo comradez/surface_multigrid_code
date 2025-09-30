@@ -1,4 +1,4 @@
-#include "min_quad_with_fixed_mg.h"
+#include "surface_multigrid/min_quad_with_fixed_mg.h"
 
 void min_quad_with_fixed_mg_precompute(
   const Eigen::SparseMatrix<double> & A,

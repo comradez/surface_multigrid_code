@@ -1,4 +1,4 @@
-#include "vector_mod.h"
+#include "surface_multigrid/vector_mod.h"
 
 void vector_mod(
   const Eigen::VectorXi & input,

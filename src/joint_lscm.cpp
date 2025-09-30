@@ -1,4 +1,4 @@
-#include "joint_lscm.h"
+#include "surface_multigrid/joint_lscm.h"
 
 bool joint_lscm(
   const Eigen::MatrixXd & V_pre,
