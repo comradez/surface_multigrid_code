@@ -26,7 +26,7 @@ void get_post_faces(
   f_keep.resize(f_keep_vec.size());
 	f_keep = Map<VectorXi, Unaligned>(f_keep_vec.data(), f_keep_vec.size());
   
-  igl::slice(F_pre,f_keep,1,F_post);
+  F_post = F_pre(f_keep, igl::placeholders::all);
   for (int r=0; r<F_post.rows(); r++){
     for (int c=0; c<F_post.cols(); c++){
       if (F_post(r,c) == vj)

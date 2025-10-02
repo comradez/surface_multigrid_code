@@ -68,7 +68,7 @@ bool SSP_vertexRemoval(
   igl::slice_mask(Eigen::VectorXi(J),keep,1,J);
   Eigen::VectorXi _1,I2;
   igl::remove_unreferenced(Eigen::MatrixXd(U),Eigen::MatrixXi(G),U,G,_1,I2);
-  igl::slice(Eigen::VectorXi(I),I2,1,I);
+  I = Eigen::VectorXi(I)(I2, igl::placeholders::all);
 
   return ret;
 }

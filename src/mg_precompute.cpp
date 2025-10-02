@@ -39,6 +39,14 @@ void mg_precompute(
 		// TODO: handle the case where we only have 1 level		
 	}
 
+	if (nLvs == 1) {
+		mg.clear();
+		mg.push_back(mg_data());
+		mg[0].V = Vf;
+		mg[0].F = Ff;
+		return;
+	}
+
 	mg_data data_lv0;
 	if (mg.size() > 0) {
 		data_lv0 = mg[0];

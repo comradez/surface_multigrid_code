@@ -31,9 +31,9 @@ void mqwf_dense_precompute(
   // get matrices
   MatrixXd Auu, Auk, Aku;
   Auu.resize(data.u.size(), data.u.size());
-  igl::slice(A, data.u, data.u, Auu);
-  igl::slice(A, data.u, data.k, Auk);
-  igl::slice(A, data.k, data.u, Aku);
+  Auu = A(data.u, data.u);
+  Auk = A(data.u, data.k);
+  Aku = A(data.k, data.u);
 
   // save data
   data.Auu_pref = Auu.ldlt();
@@ -97,7 +97,7 @@ void mqwf_dense_solve(
   else
   {
     VectorXd RHS_unknown;
-    igl::slice(RHS,data.u,col_colon,RHS_unknown);
+    RHS_unknown = RHS(data.u, col_colon);
     RHS_reduced = -0.5 * data.Auk_plus_AkuT*known_val - RHS_unknown;
   }
 

@@ -55,7 +55,6 @@ void remove_unreferenced_lessF(
     }
   }
   
-  igl::slice(V,subsetVIdx,1,RV);
-
+  RV = V(subsetVIdx, igl::placeholders::all);
   
 }

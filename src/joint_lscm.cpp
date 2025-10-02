@@ -192,10 +192,10 @@ bool joint_lscm(
 			if (bdLoop_igl(ii) == bdLoop(0)) 
 			{	
 				VectorXi I1 = VectorXi::LinSpaced(bdLoop_igl.size()-ii, ii, bdLoop_igl.size()-1);
-				igl::slice(bdLoop_igl,I1,1,firstHalf);
+				firstHalf = bdLoop_igl(I1, igl::placeholders::all);
 
 				VectorXi I2 = VectorXi::LinSpaced(ii, 0, ii-1);
-				igl::slice(bdLoop_igl,I2,1,secondHalf);
+				secondHalf = bdLoop_igl(I2, igl::placeholders::all);
 			}
 		}
 		bdLoop_igl_reordered.resize(bdLoop_igl.size());
@@ -641,7 +641,7 @@ void joint_lscm_case0( // both vi and vj are interior
 
 		// assign to UV_pre
 		VectorXi I = VectorXi::LinSpaced(nV, 0, nV-1);
-		igl::slice(UVjoint,I,1,UV_pre);
+		UV_pre = UVjoint(I, igl::placeholders::all);
 
 		// get UV_post
 		UV_post.resize(nV,2);
@@ -958,7 +958,7 @@ void case2_constraint3_snap1(
 
 		// assign to UV_pre
 		VectorXi I = VectorXi::LinSpaced(nV, 0, nV-1);
-		igl::slice(UVjoint,I,1,UV_pre);
+		UV_pre = UVjoint(I, igl::placeholders::all);
 
 		// get UV_post
 		UV_post.resize(nV,2);
@@ -1057,10 +1057,10 @@ void case2_constraint4(
 					if (bdLoop_post_tmp(ii) == bdLoop_post(0)) 
 					{	
 						VectorXi I1 = VectorXi::LinSpaced(bdLoop_post_tmp.size()-ii, ii, bdLoop_post_tmp.size()-1);
-						igl::slice(bdLoop_post_tmp,I1,1,firstHalf);
+						firstHalf = bdLoop_post_tmp(I1, igl::placeholders::all);
 
 						VectorXi I2 = VectorXi::LinSpaced(ii, 0, ii-1);
-						igl::slice(bdLoop_post_tmp,I2,1,secondHalf);
+						secondHalf = bdLoop_post_tmp(I2, igl::placeholders::all);
 					}
 				}
 				bdLoop_post_reordered.resize(bdLoop_post_tmp.size());
@@ -1121,7 +1121,7 @@ void case2_constraint4(
 
 		// assign to UV_pre
 		VectorXi I = VectorXi::LinSpaced(nV, 0, nV-1);
-		igl::slice(UVjoint,I,1,UV_pre);
+		UV_pre = UVjoint(I, igl::placeholders::all);
 
 		// get UV_post
 		UV_post.resize(nV,2);
@@ -1129,246 +1129,3 @@ void case2_constraint4(
 		UV_post.row(vi) = UVjoint.row(vi_post);
 	}
 }
-
-// void joint_lscm_case2( // both vi and vj are on boundary (no flap)
-// 	const Eigen::MatrixXd & V_pre,
-//   const Eigen::MatrixXi & FUV_pre,
-//   const Eigen::MatrixXd & V_post,
-//   const Eigen::MatrixXi & FUV_post,
-//   const int & vi,
-//   const int & vj,
-//   const Eigen::VectorXi & bdLoop,
-// 	const bool & verbose,
-// 	const bool & isDebug, 
-// 	const Eigen::VectorXi & onBd,
-//   Eigen::MatrixXd & UV_pre,
-//   Eigen::MatrixXd & UV_post)
-// {
-// 	using namespace Eigen;
-// 	using namespace std;
-
-// 	int nV = V_pre.rows();
-// 	int infVIdx = -1;
-
-// 	// determine whether ui is going to snap to vi or vj
-// 	int snapIdx;
-// 	{
-// 		double dist2vi = (V_post.row(vi) - V_pre.row(vi)).norm();
-// 		double dist2vj = (V_post.row(vi) - V_pre.row(vj)).norm();
-// 		if (dist2vi < dist2vj)
-// 			snapIdx = vi;
-// 		else
-// 			snapIdx = vj;
-// 	}
-
-// 	// create joint mesh
-// 	MatrixXd Vjoint_pre,Vjoint_post;
-// 	MatrixXi Fjoint_pre, Fjoint_post;
-// 	int vi_pre, vj_pre, vi_post;
-// 	VectorXi b_UV;
-// 	VectorXd bc_UV;
-// 	int nVjoint;
-// 	{
-// 		nVjoint = nV;
-
-// 		// cout << "start create joint mesh\n";
-// 		// compute Vjoint = [V_pre; V_post.row(vi)]
-// 		Vjoint_pre.resize(nVjoint, 3);
-// 		Vjoint_pre = V_pre;
-// 		Vjoint_post.resize(nVjoint, 3);
-// 		Vjoint_post = V_pre;
-// 		Vjoint_post.row(snapIdx) = V_post.row(vi);
-
-// 		Fjoint_pre = FUV_pre;
-// 		Fjoint_post = FUV_post;
-// 		for (int r=0; r<Fjoint_post.rows(); r++){
-// 			for (int c=0; c<Fjoint_post.cols(); c++){
-// 				if (Fjoint_post(r,c) == vi)
-// 					Fjoint_post(r,c) = snapIdx;
-// 			}
-// 		}
-
-// 		// get the vertex that needs to be on the straight line (snapIdx -- (vi or vj) -- vk)
-// 		int vk = -1;
-// 		{
-// 			for (int ii=0; ii<bdLoop.size(); ii++)
-// 			{
-// 				if (bdLoop(ii) == snapIdx)
-// 				{
-// 					// check whether (vi/vj) is on the left
-// 					int preIdx = (ii-1+bdLoop.size()) % bdLoop.size();
-// 					if (bdLoop(preIdx) == vi || bdLoop(preIdx) == vj) // if on the left 
-// 					{
-// 						int prepreIdx = (ii-2+bdLoop.size()) % bdLoop.size();
-// 						vk = bdLoop(prepreIdx);
-// 					}
-					
-// 					// check whether (vi/vj) is on the right
-// 					int postIdx = (ii+1) % bdLoop.size();
-// 					if (bdLoop(postIdx) == vi || bdLoop(postIdx) == vj) // if on the right 
-// 					{
-// 						int postpostIdx = (ii+2) % bdLoop.size();
-// 						vk = bdLoop(postpostIdx);
-// 					}
-// 				}
-// 			}
-// 			cout << "vk: " << vk << endl;
-// 			assert(vk != -1);
-// 		}
-
-// 		// assign vi vj
-// 		vi_pre = vi;
-// 		vj_pre = vj;
-// 		vi_post = snapIdx;
-
-// 		// get boundary conditions for the global solve
-// 		// for case 2: vi_pre = (0,0), vj_pre = (1,0), and all bIdx = (?,0)
-// 		b_UV.resize(5);
-// 		bc_UV.resize(5);
-// 		bc_UV.setZero();
-
-// 		b_UV << vi_pre, vj_pre, vi_pre+nVjoint, vj_pre+nVjoint, vk+nVjoint;
-// 		bc_UV << 0, 1, 0, 0, 0;
-// 	}
-// 	cout << "finish reindexing \n";
-
-// 	VectorXd UVjoint_flat;
-// 	{
-// 		PROFC_NODE("lscm: solve");
-// 		flatten(Vjoint_pre,Fjoint_pre,Vjoint_post,Fjoint_post,b_UV,bc_UV,nVjoint,isDebug,UVjoint_flat);
-// 	}
-// 	if (verbose)
-// 		cout << "finish solving \n";
-	
-// 	// reshape UV
-// 	{
-// 		// get UVjoint 
-// 		MatrixXd UVjoint(nVjoint, 2);
-// 		for (unsigned i=0;i<UVjoint.cols();++i)
-// 			UVjoint.col(UVjoint.cols()-i-1) = UVjoint_flat.block(UVjoint.rows()*i,0,UVjoint.rows(),1);
-
-// 		// assign to UV_pre
-// 		VectorXi I = VectorXi::LinSpaced(nV, 0, nV-1);
-// 		igl::slice(UVjoint,I,1,UV_pre);
-
-// 		// get UV_post
-// 		UV_post.resize(nV,2);
-// 		UV_post = UV_pre;
-// 		UV_post.row(vi) = UVjoint.row(vi_post);
-// 	}
-// }
-
-
-
-	
-
-	// // determine whether ui is going to snap to vi or vj
-	// if (snapIdx == -1)
-	// {
-	// 	double dist2vi = (V_post.row(vi) - V_pre.row(vi)).norm();
-	// 	double dist2vj = (V_post.row(vi) - V_pre.row(vj)).norm();
-	// 	if (dist2vi < dist2vj)
-	// 		snapIdx = vi;
-	// 	else
-	// 		snapIdx = vj;
-	// }
-
-
-	// int nV = V_pre.rows();
-	// int infVIdx = -1;
-
-	// // create joint mesh
-	// MatrixXd Vjoint_pre,Vjoint_post;
-	// MatrixXi Fjoint_pre, Fjoint_post;
-	// int vi_pre, vj_pre, vi_post;
-	// VectorXi b_UV;
-	// VectorXd bc_UV;
-	// int nVjoint;
-	// {
-	// 	nVjoint = nV;
-
-	// 	// cout << "start create joint mesh\n";
-	// 	// compute Vjoint = [V_pre; V_post.row(vi)]
-	// 	Vjoint_pre.resize(nVjoint, 3);
-	// 	Vjoint_pre = V_pre;
-	// 	Vjoint_post.resize(nVjoint, 3);
-	// 	Vjoint_post = V_pre;
-	// 	Vjoint_post.row(snapIdx) = V_post.row(vi);
-
-	// 	Fjoint_pre = FUV_pre;
-	// 	Fjoint_post = FUV_post;
-	// 	for (int r=0; r<Fjoint_post.rows(); r++){
-	// 		for (int c=0; c<Fjoint_post.cols(); c++){
-	// 			if (Fjoint_post(r,c) == vi)
-	// 				Fjoint_post(r,c) = snapIdx;
-	// 		}
-	// 	}
-
-	// 	// get the vertex that needs to be on the straight line (snapIdx -- (vi or vj) -- vk)
-	// 	int vk = -1;
-	// 	{
-	// 		for (int ii=0; ii<bdLoop.size(); ii++)
-	// 		{
-	// 			if (bdLoop(ii) == snapIdx)
-	// 			{
-	// 				// check whether (vi/vj) is on the left
-	// 				int preIdx = (ii-1+bdLoop.size()) % bdLoop.size();
-	// 				if (bdLoop(preIdx) == vi || bdLoop(preIdx) == vj) // if on the left 
-	// 				{
-	// 					int prepreIdx = (ii-2+bdLoop.size()) % bdLoop.size();
-	// 					vk = bdLoop(prepreIdx);
-	// 				}
-					
-	// 				// check whether (vi/vj) is on the right
-	// 				int postIdx = (ii+1) % bdLoop.size();
-	// 				if (bdLoop(postIdx) == vi || bdLoop(postIdx) == vj) // if on the right 
-	// 				{
-	// 					int postpostIdx = (ii+2) % bdLoop.size();
-	// 					vk = bdLoop(postpostIdx);
-	// 				}
-	// 			}
-	// 		}
-	// 		cout << "vk: " << vk << endl;
-	// 		assert(vk != -1);
-	// 	}
-
-	// 	// assign vi vj
-	// 	vi_pre = vi;
-	// 	vj_pre = vj;
-	// 	vi_post = snapIdx;
-
-	// 	// get boundary conditions for the global solve
-	// 	// for case 2: vi_pre = (0,0), vj_pre = (1,0), and all bIdx = (?,0)
-	// 	b_UV.resize(5);
-	// 	bc_UV.resize(5);
-	// 	bc_UV.setZero();
-
-	// 	b_UV << vi_pre, vj_pre, vi_pre+nVjoint, vj_pre+nVjoint, vk+nVjoint;
-	// 	bc_UV << 0, 1, 0, 0, 0;
-	// }
-	// cout << "finish reindexing \n";
-
-	// VectorXd UVjoint_flat;
-	// {
-	// 	PROFC_NODE("lscm: solve");
-	// 	double energyVal = flatten(Vjoint_pre,Fjoint_pre,Vjoint_post,Fjoint_post,b_UV,bc_UV,nVjoint,isDebug,UVjoint_flat);
-	// }
-	// if (verbose)
-	// 	cout << "finish solving \n";
-	
-	// reshape UV
-	// {
-	// 	// get UVjoint 
-	// 	MatrixXd UVjoint(nVjoint, 2);
-	// 	for (unsigned i=0;i<UVjoint.cols();++i)
-	// 		UVjoint.col(UVjoint.cols()-i-1) = UVjoint_flat.block(UVjoint.rows()*i,0,UVjoint.rows(),1);
-
-	// 	// assign to UV_pre
-	// 	VectorXi I = VectorXi::LinSpaced(nV, 0, nV-1);
-	// 	igl::slice(UVjoint,I,1,UV_pre);
-
-	// 	// get UV_post
-	// 	UV_post.resize(nV,2);
-	// 	UV_post = UV_pre;
-	// 	UV_post.row(vi) = UVjoint.row(vi_post);
-	// }
